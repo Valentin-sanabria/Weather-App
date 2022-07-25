@@ -1,0 +1,90 @@
+
+*{
+
+    background-color: rgb(41, 35, 35);
+    font-family: 'Rubik', sans-serif;
+}
+
+body{
+
+    position: relative;
+    display: flex;
+    height: 96vh;
+    width: 98vw;
+}
+
+p {
+
+    color: whitesmoke;
+}
+
+.divSearch{
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+}
+
+.divSearchBar{
+
+
+
+}
+
+#searchBar {
+
+    width: 260px;
+    height: 42px;
+    margin-right: 10px;
+}
+
+#searchIcon {
+
+    width: 42px;
+    height: 48px;
+    background-color:rgb(71, 71, 63)
+
+
+}
+
+.cityStats{
+
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    margin-left: 12px;
+    max-width: 60vw;
+    text-align: left;
+    align-items: center;
+}
+
+#temperature{
+
+    font-size: 82px;
+    margin-right: 26px;
+}
+
+#temperature span{
+
+    font-size: 60px;
+    font-weight: 300;
+}
+
+#bigExtraInfo {
+
+    display: flex;
+    width: 25vw;    
+    justify-content: space-between;
+   
+}
+
+.divExtraInfo p {
+
+    font-size: 32px;
+    font-weight: 300;
+    margin: 0;
+
+}
