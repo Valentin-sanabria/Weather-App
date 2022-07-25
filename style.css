@@ -1,12 +1,15 @@
 
 *{
 
-    background-color: rgb(41, 35, 35);
     font-family: 'Rubik', sans-serif;
 }
 
 body{
 
+    background-image: url(img/windy1.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(41, 35, 35);
     position: relative;
     display: flex;
     height: 96vh;
@@ -16,6 +19,9 @@ body{
 p {
 
     color: whitesmoke;
+    font-size: 32px;
+    font-weight: 300;
+    margin: 0;
 }
 
 .divSearch{
@@ -23,13 +29,9 @@ p {
     position: absolute;
     top: 0;
     right: 0;
-    
-}
-
-.divSearchBar{
-
-
-
+    background-color: rgb(83, 86, 87);
+    padding: 22px;
+    border-radius: 12px;
 }
 
 #searchBar {
@@ -37,28 +39,58 @@ p {
     width: 260px;
     height: 42px;
     margin-right: 10px;
+    border-style: none;
+    border-bottom: 1px solid whitesmoke;
+    font-size: 20px;
 }
 
 #searchIcon {
 
-    width: 42px;
+    width: 48px;
     height: 48px;
-    background-color:rgb(71, 71, 63)
+    background-color:rgb(71, 71, 63);
+    border-radius: 10px;
+
 
 
 }
 
-.cityStats{
+.recentCity{
 
+    font-size: 26px;
+    font-weight: 300;
+    margin: 12px;
+
+}
+
+.blur{
+
+    filter: blur(9px);
     display: flex;
     position: absolute;
     bottom: 0;
     left: 0;
 
     margin-left: 12px;
-    max-width: 60vw;
+    width: 540px;
+    height: 100px;
+}
+
+.containerStats{
+
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    margin-left: 12px;
+    width: 540px;
+    padding: 10px;
     text-align: left;
     align-items: center;
+    justify-content: space-around;
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
 }
 
 #temperature{
@@ -73,18 +105,26 @@ p {
     font-weight: 300;
 }
 
-#bigExtraInfo {
-
-    display: flex;
-    width: 25vw;    
-    justify-content: space-between;
-   
+.divExtraInfo{
+    max-width: 150px;
+    min-width: 130px;
+    
+    
 }
 
-.divExtraInfo p {
+#spaceBetween {
 
-    font-size: 32px;
-    font-weight: 300;
-    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1vw;
+}
 
+#windSpeedKM{
+
+    margin-left: 4vw;
+}
+
+#humidityPorcentage{
+
+    margin-left: 4vw;
 }
