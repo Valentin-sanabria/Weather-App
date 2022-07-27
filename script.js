@@ -21,6 +21,9 @@ let unit = "&units=metric";
 
 
 let i = 0;
+let start = true;
+let finishedStatsChange = true;
+
 
 //Send input to by pressing enter.
 inputCity.addEventListener("keydown", enter=> {
@@ -40,8 +43,7 @@ inputCity.addEventListener("keydown", enter=> {
 
         //Finish api url by adding the city name from input, call getData() function-
         let full_url = api_url + cityName + unit + api_key;
-        getData(full_url)
-    
+        getData(full_url);
 
         if ( i > 2 ) {
     
@@ -70,7 +72,10 @@ searchIcon.addEventListener("click", search=>{
 
     //Finish api url by adding the city name from input, call getData() function-
     let full_url = api_url + cityName + unit + api_key;
-    getData(full_url)
+    getData(full_url);
+        
+    //Execute hideShow()
+    hideShow();
     
         
     if ( i > 2 ) {
@@ -84,13 +89,35 @@ searchIcon.addEventListener("click", search=>{
 //Function always make first letter upper case.
 function firstUpperCase(cityName){
 
-    //Assing touppercase() to first letter of string, then add the rest of the sentence by using the actual sentence with the first letter sliced. 
+    //Assign touppercase() to first letter of string, then add the rest of the sentence by using the actual sentence with the first letter sliced. 
     latestSearch = cityName[0].toUpperCase() + cityName.slice(1);
-    cityName = latestSearch;
 
     return latestSearch;
     
 }
+
+
+//Hide initial message and show weather stats.
+function hideShow(){
+    
+    if ( start == true ){        
+      
+        let statsHidden = document.querySelectorAll(".hidden");
+        
+        for (let i = 0; i < statsHidden.length; i++) {
+    
+            statsHidden[i].classList.replace('hidden', 'show');
+
+        }
+
+        let initialMessage = document.getElementById("bigPadding");
+        initialMessage.classList.add("hidden");
+    }
+
+   start = false;
+
+}
+
 
 //Change background img depending on city.
 
@@ -100,7 +127,6 @@ async function getData(full_url) {
 
     const api_respone = await fetch(full_url);
     const data = await api_respone.json();
-    console.log(data);
 
     //Save stats in vars.
     const cityTemperature = data.main.temp;
@@ -109,6 +135,9 @@ async function getData(full_url) {
     const weatherAdjective = data.weather[0].description;
     const weatherIcon = data.weather[0].icon;
     changeOutput(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective, weatherIcon);
+
+     //Once all stats are replaced, execute hideShow()
+     hideShow();
 
 }
 
@@ -123,5 +152,6 @@ function changeOutput(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjec
     humidityOutput.innerText = Math.round(cityHumidity) + "%";
     windOutput.innerText = Math.round(cityWindSpeed * 3.6) + "km/h";
 
-    console.log(iconOutput.src);
+    finishedStatsChange = true;
+
 }

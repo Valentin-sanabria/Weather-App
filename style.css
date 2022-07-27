@@ -108,16 +108,24 @@ p {
 
 }
 
+#divTemperature{
+
+    display: flex;
+    vertical-align: baseline;
+}
+
 #temperature{
 
     font-size: 82px;
-    margin-right: 26px;
+    vertical-align: bottom;
 }
 
-#temperature span{
+#metricCelcius{
 
-    font-size: 60px;
+    font-size: 62px;
     font-weight: 300;
+    margin-right: 22px;
+    vertical-align: center;
 }
 
 
@@ -136,4 +144,22 @@ p {
 #humidityPorcentage{
 
     margin-left: 4vw;
+}
+
+.hidden{
+
+    display: none !important;
+    visibility: hidden;
+
+}
+
+.show{
+
+    transition: 1s;
+    visibility: visible;
+}
+
+#bigPadding{
+
+    padding: 25px;
 }
