@@ -33,10 +33,17 @@ p {
     margin: 0;
 }
 
-p img {
+#iconText img {
     
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+#iconText{
+
+    display: flex;
+
 }
 
 .divSearch{
