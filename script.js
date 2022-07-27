@@ -8,6 +8,8 @@ let recentCitySearches = document.querySelectorAll("p.recentCity");
 //Var declarations for stats output.
 let temperatureOutput = document.getElementById("temperature");
 let cityOutput = document.getElementById("city");
+let iconOutput = document.getElementById("weatherIcon");
+let adjectiveOutput = document.getElementById("weatherText");
 let windOutput = document.getElementById("windSpeedKM");
 let humidityOutput = document.getElementById("humidityPorcentage");
 
@@ -100,23 +102,26 @@ async function getData(full_url) {
     const data = await api_respone.json();
     console.log(data);
 
-    //Save temperature in var.
+    //Save stats in vars.
     const cityTemperature = data.main.temp;
     const cityHumidity = data.main.humidity;
     const cityWindSpeed = data.wind.speed;
-    console.log("temperature: " + cityTemperature);
-    
-    changeOutput(cityTemperature, cityHumidity, cityWindSpeed);
+    const weatherAdjective = data.weather[0].description;
+    const weatherIcon = data.weather[0].icon;
+    changeOutput(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective, weatherIcon);
 
 }
 
-//Change weather info depending on city
 
-function changeOutput(cityTemperature, cityHumidity, cityWindSpeed) {
+//Change weather stats info depending on city
+function changeOutput(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective, weatherIcon) {
 
-    temperatureOutput.innerText = cityTemperature + "°";
+    temperatureOutput.innerText = Math.round(cityTemperature)  + "°";
     cityOutput.innerText = cityName;
-    humidityOutput.innerText = cityHumidity + "%";
-    windOutput.innerText = cityWindSpeed + "km/h";
+    iconOutput.src = "http://openweathermap.org/img/wn/" + weatherIcon +"@2x.png";
+    adjectiveOutput.innerText = firstUpperCase(weatherAdjective);
+    humidityOutput.innerText = Math.round(cityHumidity) + "%";
+    windOutput.innerText = Math.round(cityWindSpeed * 3.6) + "km/h";
 
+    console.log(iconOutput.src);
 }
