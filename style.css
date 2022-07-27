@@ -87,11 +87,12 @@ p {
     padding: 10px;
     text-align: left;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-around; 
     background-color: rgba(34, 32, 32, 0.253);
     backdrop-filter: blur(12px);
     border-radius: 10px;
     
+
 }
 
 #temperature{
