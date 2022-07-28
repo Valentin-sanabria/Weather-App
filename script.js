@@ -35,7 +35,10 @@ inputCity.addEventListener("keydown", enter=> {
         let latestSearch = firstUpperCase(cityName);
 
         //Update history to show the city name.
+        recentCitySearches[i].style.opacity = 0;
         recentCitySearches[i].innerHTML = latestSearch;
+        recentCitySearches[i].style.opacity = 1;
+
         //Clean input text.
         inputCity.value = "";
         cityName = latestSearch;
@@ -64,7 +67,11 @@ searchIcon.addEventListener("click", search=>{
     let latestSearch = firstUpperCase(cityName);
 
     //Update history to show the city name.
+    
+    recentCitySearches[i].style.opacity = 0;
     recentCitySearches[i].innerHTML = latestSearch;
+    recentCitySearches[i].style.opacity = 1;
+
     //Clean input text.
     inputCity.value = "";
     i++;
@@ -96,6 +103,34 @@ function firstUpperCase(cityName){
     
 }
 
+//Click a city from history and see its weather again. (City 1)
+recentCitySearches[0].addEventListener("click", clickHistory=>{
+
+    cityName = recentCitySearches[0].innerText;
+    let full_url = api_url + cityName + unit + api_key;
+    getData(full_url);
+
+
+
+})
+
+//Click a city from history and see its weather again. (City 2)
+recentCitySearches[1].addEventListener("click", clickHistory=>{
+
+    cityName = recentCitySearches[1].innerText;
+    let full_url = api_url + cityName + unit + api_key;
+    getData(full_url);
+
+})
+
+//Click a city from history and see its weather again. (City 3)
+recentCitySearches[2].addEventListener("click", clickHistory=>{
+
+    cityName = recentCitySearches[2].innerText;
+    let full_url = api_url + cityName + unit + api_key;
+    getData(full_url);
+
+})
 
 //Hide initial message and show weather stats.
 function hideShow(){
