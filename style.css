@@ -6,7 +6,7 @@
 
 body{
 
-    background-image: url(img/rosario.jpg);
+    background-image: url("https://i.stack.imgur.com/PhM0E.jpg");
     
     overflow: hidden;
     background-repeat: no-repeat;
@@ -17,7 +17,7 @@ body{
     display: flex;
     height: 99vh;
     width: 98vw;
-
+    
 }
 
 h2{
@@ -114,8 +114,8 @@ p {
     justify-content: space-around; 
     background-color: rgba(34, 32, 32, 0.253);
     backdrop-filter: blur(12px);
-    border-radius: 10px;
-    
+    border-radius: 10px; 
+
 
 }
 
@@ -162,7 +162,7 @@ p {
     opacity: 0 !important;
 
     overflow: hidden;
-    transition: opacity 0.7s;
+    transition: opacity 0.6s;
 
 }
 
@@ -175,14 +175,14 @@ p {
     opacity: 0 !important;
 
     
-    transition: opacity 0.7s;
+    transition: opacity 0.6s;
     overflow: hidden;
 
 }
 
 .replaceText {
 
-    transition: opacity 0.7s;
+    transition: opacity 0.6s;
     opacity: 1;
 
 }

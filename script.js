@@ -146,14 +146,26 @@ function hideShow(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective
         setTimeout(() => {            
                 
             initialMessage.classList.add("fakeDisplayNone");
-
-            for (let i = 0; i < statsHidden.length; i++) {
             
-                statsHidden[i].classList.replace("fakeDisplayNone","replaceText");
+            for (let i = 0; i < statsHidden.length; i++) {
+                
+                statsHidden[i].classList.replace("fakeDisplayNone", "hidden");
 
             }      
                
-        }, 720);
+
+            setTimeout(() => {
+                
+                for (let i = 0; i < statsHidden.length; i++) {
+                    
+                statsHidden[i].classList.replace("hidden","replaceText");
+
+                }     
+
+            }, 100);
+            
+
+        }, 620);
 
 
     }
@@ -179,7 +191,7 @@ function hideShow(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective
 
         }
         
-    }, 720);
+    }, 620);
 
     }
 
@@ -188,8 +200,11 @@ function hideShow(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective
 
 }
 
-
 //Change background img depending on city.
+
+
+
+
 
 
 //Get info with API.
