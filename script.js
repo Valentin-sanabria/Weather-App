@@ -67,10 +67,11 @@ searchIcon.addEventListener("click", search=>{
     let latestSearch = firstUpperCase(cityName);
 
     //Update history to show the city name.
-    
-    recentCitySearches[i].style.opacity = 0;
-    recentCitySearches[i].innerHTML = latestSearch;
-    recentCitySearches[i].style.opacity = 1;
+
+       recentCitySearches[i].style.opacity = 0;
+       recentCitySearches[i].innerHTML = latestSearch;        
+       recentCitySearches[i].style.opacity = 1;
+   
 
     //Clean input text.
     inputCity.value = "";
@@ -133,23 +134,57 @@ recentCitySearches[2].addEventListener("click", clickHistory=>{
 })
 
 //Hide initial message and show weather stats.
-function hideShow(){
+function hideShow(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective, weatherIcon){
     
     if ( start == true ){        
       
-        let statsHidden = document.querySelectorAll(".hidden");
+        let statsHidden = document.querySelectorAll(".fakeDisplayNone");
         
-        for (let i = 0; i < statsHidden.length; i++) {
-    
-            statsHidden[i].classList.replace('hidden', 'show');
-
-        }
-
         let initialMessage = document.getElementById("bigPadding");
         initialMessage.classList.add("hidden");
+        
+        setTimeout(() => {            
+                
+            initialMessage.classList.add("fakeDisplayNone");
+
+            for (let i = 0; i < statsHidden.length; i++) {
+            
+                statsHidden[i].classList.replace("fakeDisplayNone","replaceText");
+
+            }      
+               
+        }, 720);
+
+
+    }
+
+    //If !start then query all stats variables so they're always the same name even if content changes. Hide them, call changeOutput() , and show them again.
+    if (start == false){
+
+        let statsReplace = document.querySelectorAll(".replaceText");
+        
+        for (let i = 0; i < statsReplace.length; i++) {
+        
+            statsReplace[i].classList.add("hidden");
+
+    }
+    
+    setTimeout(() => {
+
+        changeOutput(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective, weatherIcon);
+
+        for (let i = 0; i < statsReplace.length; i++) {
+            
+            statsReplace[i].classList.remove("hidden");
+
+        }
+        
+    }, 720);
+
     }
 
    start = false;
+
 
 }
 
@@ -169,10 +204,9 @@ async function getData(full_url) {
     const cityWindSpeed = data.wind.speed;
     const weatherAdjective = data.weather[0].description;
     const weatherIcon = data.weather[0].icon;
-    changeOutput(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective, weatherIcon);
 
      //Once all stats are replaced, execute hideShow()
-     hideShow();
+     hideShow(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective, weatherIcon);
 
 }
 

@@ -2,7 +2,6 @@
 *{
 
     font-family: 'Rubik', sans-serif;
-    transition: 0.5s;
 }
 
 body{
@@ -158,22 +157,38 @@ p {
     margin-left: 4vw;
 }
 
-.hidden{
+.hidden {
 
-    display: none !important;
-    opacity: 0;
+    opacity: 0 !important;
+
+    overflow: hidden;
+    transition: opacity 0.7s;
+
+}
+
+.fakeDisplayNone {
+
+    height: 0px !important;
+    width: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    opacity: 0 !important;
+
     
-    transition: 1s;
+    transition: opacity 0.7s;
+    overflow: hidden;
 
 }
 
-.show{
+.replaceText {
 
-    transition: 1s;
+    transition: opacity 0.7s;
     opacity: 1;
+
 }
 
-#bigPadding{
+#bigPadding {
 
     padding: 25px;
+
 }
