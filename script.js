@@ -22,7 +22,6 @@ let unit = "&units=metric";
 
 let i = 0;
 let start = true;
-let finishedStatsChange = true;
 
 
 //Send input to by pressing enter.
@@ -155,7 +154,8 @@ function hideShow(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective
                
 
             setTimeout(() => {
-                
+
+                changeOutput(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective, weatherIcon);
                 for (let i = 0; i < statsHidden.length; i++) {
                     
                 statsHidden[i].classList.replace("hidden","replaceText");
@@ -200,13 +200,6 @@ function hideShow(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjective
 
 }
 
-//Change background img depending on city.
-
-
-
-
-
-
 //Get info with API.
 async function getData(full_url) {
 
@@ -235,7 +228,8 @@ function changeOutput(cityTemperature, cityHumidity, cityWindSpeed, weatherAdjec
     adjectiveOutput.innerText = firstUpperCase(weatherAdjective);
     humidityOutput.innerText = Math.round(cityHumidity) + "%";
     windOutput.innerText = Math.round(cityWindSpeed * 3.6) + "km/h";
-
-    finishedStatsChange = true;
+    
+    //Change background img depending on city.
+    document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?" + cityName + "-city')"; 
 
 }
